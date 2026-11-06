@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reading Size Control</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./reading-size.css">
+  <style>
+    :root { color-scheme: light dark; }
+    body {
+      font: 1rem/1.5 system-ui, sans-serif;
+      margin: 0;
+    }
+    main {
+      max-inline-size: 42rem;
+      margin-inline: auto;
+      padding: clamp(1rem, 5vw, 3rem);
+    }
+    h1 { line-height: 1.2; }
+    .intro { max-inline-size: 48ch; }
+    .reading-content {
+      border-inline-start: 0.25rem solid #427c65;
+      padding-inline-start: 1rem;
+      margin-block: 2rem;
+    }
+    .reading-content h2 { font-size: 1.25em; }
+  </style>
+  <main>
+    <h1>Reading Size Control</h1>
+    <p class="intro">Choose the text size that feels comfortable. This browser remembers your choice.</p>
+    <fieldset class="reading-options" hidden>
+      <legend>Reading text size</legend>
+      <div class="reading-options__choices">
+        <label><input type="radio" name="reading-size" value="100" checked> 100%</label>
+        <label><input type="radio" name="reading-size" value="125"> 125%</label>
+        <label><input type="radio" name="reading-size" value="150"> 150%</label>
+        <label><input type="radio" name="reading-size" value="200"> 200%</label>
+      </div>
+    </fieldset>
+    <article class="reading-content">
+      <h2>A garden in a jar</h2>
+      <p>Mira put a bean on a damp paper towel inside a glass jar. She set the jar by a sunny window.</p>
+      <p>A few days later, a tiny white root peeked out. Mira drew a picture of it so she could see how much it grew the next day.</p>
+    </article>
+  </main>
+  <script type="module">
+    import { mountReadingSize } from "./reading-size.js";
+
+    mountReadingSize({
+      controls: document.querySelector(".reading-options"),
+      content: document.querySelector(".reading-content"),
+      storageKey: "reading-size-control.demo",
+    });
+  </script>
+</html>

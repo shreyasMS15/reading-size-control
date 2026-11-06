@@ -1,0 +1,40 @@
+.reading-content {
+  font-size: var(--reading-size, 100%);
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.reading-options {
+  box-sizing: border-box;
+  min-inline-size: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.reading-options__choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-block-start: 0.5rem;
+}
+
+.reading-options label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  min-block-size: 2.75rem;
+  padding-inline: 0.7rem;
+  border: 1px solid currentColor;
+  border-radius: 0.45rem;
+  cursor: pointer;
+}
+
+.reading-options input {
+  margin: 0;
+}
+
+.reading-options label:focus-within {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
